@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
 
 namespace FranckDuBlosc
 {
@@ -8,6 +8,7 @@ namespace FranckDuBlosc
         {
             fixed (byte* compressed_ptr = compressed)
             {
+                Blosc2.PInvoke.Blosc.blosc2_init();
 
                 Blosc2.PInvoke.Blosc.blosc2_cbuffer_sizes((IntPtr)compressed_ptr, out int nbytes, out int cbytes, out int blocksize);
 
